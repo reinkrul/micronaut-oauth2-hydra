@@ -1,0 +1,10 @@
+version: '3'
+services:
+  webshop:
+    build: webshop
+    ports:
+      - "8080:8080"
+  inventory:
+    build: inventory
+    ports:
+      - "8081:8080"

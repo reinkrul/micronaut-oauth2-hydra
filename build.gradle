@@ -1,0 +1,33 @@
+plugins {
+    id "net.ltgt.apt-eclipse" version "0.21"
+    id "com.github.johnrengelman.shadow" version "5.1.0"
+}
+
+version "1.0"
+group "micronaut-oauth2-hydra"
+
+
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url "https://jcenter.bintray.com" }
+    }
+}
+
+subprojects {
+    version = '1.0'
+
+    apply plugin: "net.ltgt.apt-eclipse"
+    apply plugin: "com.github.johnrengelman.shadow"
+
+    configurations {
+        // for dependencies that are needed for development only
+        developmentOnly
+    }
+
+    tasks.withType(JavaCompile){
+        options.encoding = "UTF-8"
+        options.compilerArgs.add('-parameters')
+    }
+}

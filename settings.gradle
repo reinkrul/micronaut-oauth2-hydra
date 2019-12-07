@@ -1,0 +1,3 @@
+rootProject.name="micronaut-oauth2-hydra"
+include 'inventory'
+include 'webshop'
